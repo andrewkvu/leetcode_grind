@@ -1,12 +1,21 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        List<Integer> set = new ArrayList<Integer>();
-        for (int i = 0 ; i < nums.length; i++) {
-            if (!set.contains(nums[i]))
-                set.add(nums[i]);
-            else
-                set.remove(new Integer(nums[i]));
+        // weird bit manipulation
+        int result = 0;
+        
+        for (int i = 0; i < nums.length; i++) {
+            result ^= nums[i];
         }
-        return set.get(0);
+        
+        return result;
+        
+        /*
+             1 ^ 9 = 8
+             8 ^ 1 = 9
+             8 ^ 9 = 1
+             0 ^ 2 = 2
+             2 ^ 2 = 0
+             
+        */
     }
 }
