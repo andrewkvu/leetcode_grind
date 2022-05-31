@@ -9,8 +9,8 @@ class Solution:
             perms = self.permute(nums)
             
             # [2,3, 1], [3,2,1]
-            for perm in perms:
-                perm.append(n)
+            for value in perms:
+                value.append(n)
             res += perms
             nums.append(n)
         return res
