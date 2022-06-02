@@ -10,4 +10,5 @@ class Solution:
             else: # if the char is an opening par
                 stack.append(char)
         
-        return len(stack) == 0
+        # return len(stack) == 0
+        return not stack
