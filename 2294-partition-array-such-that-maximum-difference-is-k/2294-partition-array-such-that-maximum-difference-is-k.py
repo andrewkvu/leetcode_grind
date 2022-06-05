@@ -5,9 +5,9 @@ class Solution:
         partitions = 1 # by default
         last = nums[0]
         
-        for i in range(1, len(nums)):
-            if nums[i] - last > k:
+        for num in sorted(nums):
+            if num - last > k:
                 partitions += 1
-                last = nums[i]
+                last = num
         
         return partitions
