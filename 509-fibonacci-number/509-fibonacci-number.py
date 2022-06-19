@@ -1,10 +1,11 @@
 class Solution:
     def fib(self, n: int) -> int:
-        memo = {}
-        if n <= 1:
-            return n
-        if n - 1 not in memo:
-            memo[n-1] = self.fib(n-1)
-        if n - 2 not in memo:
-            memo[n-2] = self.fib(n-2)
-        return memo[n-1] + memo[n-2]
+        if n == 0:
+            return 0
+        f0 = 0
+        f1 = 1
+        for i in range(2, n+1):
+            fn = f0 + f1
+            f0 = f1
+            f1 = fn
+        return f1
