@@ -18,19 +18,20 @@ class Solution:
         res = []
         
         queue = collections.deque()
-        queue.append(root)
+        queue.append(root) # length of queue starts at one
         
-        while queue:
+        while queue: # each level
             queueLen = len(queue)
             levelList = []
-            for i in range(queueLen):
+            for i in range(queueLen): # the nodes in each level
                 node = queue.popleft()
                 # check for non-null
                 if node: # even if queue appends None, it won't append it to the whole levelList
                     levelList.append(node.val)
-                    queue.append(node.left)
+        # populate the queue with left and right children to eventually explore on next iteration
+                    queue.append(node.left) 
                     queue.append(node.right)
-            if levelList: # check for non-null levels
+            if levelList: # check for non-null levels to append
                 res.append(levelList)
         return res
         
