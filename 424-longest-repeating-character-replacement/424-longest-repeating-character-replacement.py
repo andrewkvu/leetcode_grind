@@ -8,7 +8,7 @@ class Solution:
             # if windowsize - max value of the hashmap <= k?:
             # lowest window size is 1
             if (1 + right - left) - max(count.values()) <= k:
-                res = max(res, 1 + right - left)
+                res += 1
             else:
                 count[s[left]] -= 1 # decrement count of hashmap at left since its out of the sliding window now
                 left += 1 
