@@ -17,10 +17,11 @@ class WordDictionary:
             cur = cur.children[char]
         cur.isWord = True
 
+
     def search(self, word: str) -> bool:
-        def dfs(j, root):
+        def dfs(index, root):
             cur = root
-            for i in range(j, len(word)):
+            for i in range(index, len(word)):
                 char = word[i]
                 if char == '.': # we would have to go through each of the paths of the children of the word
                     for child in cur.children.values(): # have to go through the .values of children since the key is one letter
@@ -35,7 +36,7 @@ class WordDictionary:
                     cur = cur.children[char]
             return cur.isWord
 
-        return dfs(0, self.root)     
+        return dfs(0, self.root)  
 
 
 # Your WordDictionary object will be instantiated and called as such:
