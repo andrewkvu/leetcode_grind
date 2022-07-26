@@ -18,6 +18,9 @@ class Solution:
             oldToNew[node] = copy # put in hashmap
             for neighbor in node.neighbors: # iterate through original node's neighbors
                 copy.neighbors.append(clonedfs(neighbor)) # append all neighbors
+                # ie 1 has neighbors 2 and 4, function will create copies of 2 and 4
+                # and append its neighbors, etc, etc until it gets to the last node
+                # then it will recursively go back to the first node called
             return copy
         
         return clonedfs(node) if node else None # for null case
