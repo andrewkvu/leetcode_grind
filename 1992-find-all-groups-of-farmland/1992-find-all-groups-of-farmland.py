@@ -14,7 +14,9 @@ class Solution:
             # only need to check increasing since the plots of land are rectangular
             r1, c1 = dfs(r + 1, c, visited)
             r2, c2 = dfs(r, c + 1, visited)
-
+            
+            # only need to check the max's since minimum will be checked
+            # through the r*c loop as (r, c) will be the minimum since rectangular
             maxR = max(r, r1, r2)
             maxC = max(c, c1, c2)
 
