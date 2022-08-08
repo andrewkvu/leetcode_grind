@@ -1,7 +1,7 @@
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         N = len(nums)
-        dp = [1 for i in range(len(nums))]
+        dp = [1 for i in range(N)]
 
         for i in range(N - 1, -1, -1): # go backwards
             # check all the subsequence potentials from i to N
