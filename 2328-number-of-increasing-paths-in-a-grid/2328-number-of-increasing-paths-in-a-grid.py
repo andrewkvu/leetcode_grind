@@ -1,11 +1,14 @@
 class Solution:
     def countPaths(self, grid: List[List[int]]) -> int:
+        # same as longestIncreasingPath for the most part
+        # just += for res to find the number of paths instead of the longest path
+        
         ROWS, COLS = len(grid), len(grid[0])
         MOD = 10 ** 9 + 7
         dp = {} # (r, c) -> numPaths
 
-        def dfs(r, c, prevPathLen):
-            if r < 0 or r == ROWS or c < 0 or c == COLS or grid[r][c] <= prevPathLen:
+        def dfs(r, c, prevPathVal):
+            if r < 0 or r == ROWS or c < 0 or c == COLS or grid[r][c] <= prevPathVal:
                 return 0
             if (r, c) in dp:
                 return dp[(r, c)]
