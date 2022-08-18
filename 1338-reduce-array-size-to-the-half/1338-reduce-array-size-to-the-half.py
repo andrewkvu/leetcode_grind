@@ -8,7 +8,7 @@ class Solution:
         # print(c)
         
         for i in range(len(s) - 1, -1, -1):
-            print(s[i])
+            # print(s[i])
             N -= c[s[i]]
             res += 1
             if N <= M:
