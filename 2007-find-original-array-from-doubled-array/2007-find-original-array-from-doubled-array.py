@@ -3,11 +3,13 @@ class Solution:
         count = Counter(changed)
         s = sorted(changed)
         res = []
+        if count[0] % 2 == 1:
+            return []
         # 1,2,3,4,6,8
         for num in s:
             if count[num] == 0:
                 continue
-            if count[num * 2] == 0 or count[0] % 2 == 1:
+            if count[num * 2] == 0:
                 return []
             res.append(num)
             count[num] -= 1
