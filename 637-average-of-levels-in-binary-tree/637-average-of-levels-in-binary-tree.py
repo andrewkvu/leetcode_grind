@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
-        # BFS queue
+        # BFS queue level order traversal
         res = []
         queue = collections.deque()
         queue.append(root)
