@@ -23,6 +23,7 @@ class LRUCache:
         self.right.prev = self.left
 
     # remove node from list doubly linked list
+    # draw the pictures for both remove and insert
     def remove(self, node):
         nxt = node.next
         previous = node.prev
