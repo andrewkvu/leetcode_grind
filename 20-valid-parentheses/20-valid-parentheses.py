@@ -1,14 +1,23 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        parMap = {'}': '{', ')': '(', ']': '['}
-        stack = []
-        for char in s:
-            if char in parMap: # if the char is a closing par
-                # check if stack is empty or if the last char is an opening par
-                if stack == [] or parMap[char] != stack.pop():
-                    return False
-            else: # if the char is an opening par
-                stack.append(char)
+        # for each char in the string
+        # if the char is open parenthesis, append
+        # if char is closed, check if this is a closed parenthesis and the top is an open one, blah blah
         
-        # return len(stack) == 0
+        stack = []
+        
+        for char in s:
+            if char == '(' or char == '[' or char == '{':
+                stack.append(char)
+            else:
+                if not stack:
+                    return False
+                top = stack.pop()
+                if (top == '(' and char != ')') or (top == '[' and char != ']') or (top == '{' and char != '}'):
+                    return False
+                
         return not stack
+        
+        # return whether stack is empty or not
+        # true is stack is empty
+        
