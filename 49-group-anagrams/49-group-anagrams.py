@@ -1,13 +1,12 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        strDict = defaultdict(list) # if any element is accessed that isn't in the dictionary:
-        # element will be created in the argument type - in this case "list"
-        # strDict = {}
-        for s in strs:
-            strDict[str(sorted(s))].append(s)     
-        # if str(sorted(s)) not in strDict:
-        #         strDict[str(sorted(s))] = [s]
-        #     else:
-        #         strDict[str(sorted(s))].append(s)  
+        # default dictionary of anagrams
+        # for each string, append the string to the sorted version of that string group
+        # have to do a 
+        # then return all the values in the dictionary
         
-        return strDict.values()
+        anagrams = defaultdict(list)
+        for string in strs:
+            anagrams["".join(sorted(string))].append(string)
+        
+        return anagrams.values()
