@@ -6,17 +6,18 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        # dfs function, have left and right boundaries
+        # if node is null, technically valid for bst
+        # check if the node is valid (within the left and right boundaries)
+            # if its not, return false
+        # recurse down the whole tree, adjusting the boundaries with left and right
         
-        def dfs(node, left, right): # left and right boundaries
-            if not node: # technically valid
+        def dfs(node, left, right):
+            if not node:
                 return True
-            if not (left < node.val and node.val < right): # checking if the left and right nodes are not BST valid
+            if not (left < node.val and right > node.val):
                 return False
             
-            # for left call, left bound stays same - right bound is now the parent val to make sure left is less than parent
-            return (dfs(node.left, left, node.val) and \
-            # fpr right call, left bound changes to the parent, right bound stays same
-            dfs(node.right, node.val, right))    
+            return dfs(node.left, left, node.val) and dfs(node.right, node.val, right)
         
         return dfs(root, float('-inf'), float('inf'))
-            
