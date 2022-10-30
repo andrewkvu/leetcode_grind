@@ -6,23 +6,24 @@
 #         self.right = None
 
 class Solution:
-    def __init__(self):
-        self.ans = None
-    
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        self.ans = None
+
         def dfs(node):
             if not node:
                 return False
-            # recurse dfs traversal
-            currLeft = dfs(node.left)
-            currRight = dfs(node.right)
-            
-            # basically check if the current node is one of the ancestors
-            mid = node == p or node == q
-            # we need 2 of these to be true
-            if currLeft + currRight + mid >= 2:
+            # dfs down the tree
+            left = dfs(node.left)
+            right = dfs(node.right)
+            # check if this current node is one of the ancestors
+            cur = (node == p) or (node == q)
+            # check if two of the three nodes are ancestors, then set the answer to this node
+            # should find answer here so no need to go further
+            if (left and right) or (left and cur) or (right and cur):
                 self.ans = node
-            return mid or currLeft or currRight
+                return
+            # return if one of these has an ancestor from this root of the tree
+            return left or right or cur
         
         dfs(root)
         return self.ans
