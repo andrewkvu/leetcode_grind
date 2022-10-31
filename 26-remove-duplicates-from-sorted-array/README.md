@@ -24,7 +24,7 @@ for (int i = 0; i &lt; k; i++) {
 <p>If all assertions pass, then your solution will be <strong>accepted</strong>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre><strong>Input:</strong> nums = [1,1,2]
 <strong>Output:</strong> 2, nums = [1,2,_]
@@ -32,7 +32,7 @@ for (int i = 0; i &lt; k; i++) {
 It does not matter what you leave beyond the returned k (hence they are underscores).
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre><strong>Input:</strong> nums = [0,0,1,1,1,2,2,3,3,4]
 <strong>Output:</strong> 5, nums = [0,1,2,3,4,_,_,_,_,_]
